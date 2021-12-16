@@ -33,8 +33,13 @@ const API = class {
                 return resolve(response)
             }).catch(error => {
                 error.isError = true;
-                error.data = error.response.data || null;
-                error.status = error.response.status || null;
+                if (error.response) {
+                    error.data = error.response.data || null;
+                    error.status = error.response.status || null;
+                } else {
+                    error.data = null;
+                    error.status = 404;
+                }
                 return resolve(error);
             })
         })
