@@ -54,7 +54,7 @@ app.post("/rest-service-integration-model", (req, res) => {
     const model = {
         "hello": {
             name: "hello",
-            path: "/hello",
+            url: "/hello",
             method: ["GET"]
         }
     }
